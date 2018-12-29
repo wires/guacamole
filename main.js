@@ -56,9 +56,10 @@ async function main(selector) {
 
   // three 2d points
   var positions = new Float32Array([
-    0, 0,
-    0, 0.5,
-    0.7, 0,
+  -1.0, 1.0, 
+  -1.0,  -1.0, 
+   1.0, -1.0, 
+   1.0,  1.0, 
   ]);
   gl.bufferData(gl.ARRAY_BUFFER, positions, gl.STATIC_DRAW);
 
@@ -91,8 +92,8 @@ async function main(selector) {
     gl.vertexAttribPointer(positionAttributeLocation, size, type, normalize, stride, offset)
 
     let primitiveType = gl.TRIANGLES;
-    let count = 3;
-    gl.drawArrays(primitiveType, offset, count);  
+    let count = 4;
+    gl.drawElements(primitiveType, offset, count);  
 
     requestAnimationFrame(kak);
   }
